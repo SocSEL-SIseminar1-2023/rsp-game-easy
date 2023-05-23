@@ -15,26 +15,54 @@ public class RSP {
         System.out.println("相手の手は" + enemy_hand + "です");
         
         //勝敗判定
-        if(player_hand == enemy_hand) {
-        	System.out.println("あいこです");
-        }
-        if(player_hand == 0 && enemy_hand == 1) {
-        	System.out.println("あなたの勝ちです");
-        }
-        if(player_hand == 1 && enemy_hand == 2) {
-        	System.out.println("あなたの勝ちです");
-        }
-        if(player_hand == 2 && enemy_hand == 0) {
-        	System.out.println("あなたの勝ちです");
-        }
-        if(player_hand == 0 && enemy_hand == 1) {
-        	System.out.println("相手の勝ちです");
-        }
-        if(player_hand == 2 && enemy_hand == 1) {
-        	System.out.println("相手の勝ちです");
-        }
-        if(player_hand == 0 && enemy_hand == 2) {
-        	System.out.println("相手の勝ちです");
+        switch(player_hand) {
+        	case 0:
+        		switch(enemy_hand) {
+	        		case 0:
+	        			System.out.println("あいこです");
+	        			break;
+	        		case 1:
+	        			System.out.println("あなたの勝ちです");
+	        			break;
+	        		case 2:
+	        			System.out.println("相手の勝ちです");
+	        			break;
+	        		default:
+	        			break;
+        		}
+        		break;
+        	case 1:
+        		switch(enemy_hand) {
+        		case 0:
+        			System.out.println("あいこです");
+        			break;
+        		case 1:
+        			System.out.println("相手の勝ちです");
+        			break;
+        		case 2:
+        			System.out.println("あなたの勝ちです");
+        			break;
+        		default:
+        			break;
+	    		}
+	    		break;
+        	case 2:
+        		switch(enemy_hand) {
+        		case 0:
+        			System.out.println("あなたの勝ちです");
+        			break;
+        		case 1:
+        			System.out.println("相手の勝ちです");
+        			break;
+        		case 2:
+        			System.out.println("あいこです");
+        			break;
+        		default:
+        			break;
+	    		}
+	    		break;
+	    	default:
+	    		break;
         }
 	}
 	
