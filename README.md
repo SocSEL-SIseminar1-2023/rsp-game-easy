@@ -2,14 +2,14 @@
 
 ## 実行方法
 
-1. java のインストール（https://www.oracle.com/jp/java/technologies/downloads/）
-2. cmd 上で RSP.java のあるディレクトリに移動
-3. 以下のコマンドを実行
+1. 以下のURLにアクセス
 
-```
-javac RSP.java
-java RSP
-```
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/SocSEL-SIseminar1-2023/rsp-game-easy&cloudshell_workspace=./&cloudshell_tutorial=README.md)
+
+2. Trust repoにチェックを入れて確認を押します．
+3. 上の項目から，Terminal > Run Build Taskを押すと，プログラムが実行されます．
+
+
 
 ※Eclipse をインストール済みの方は Eclipse を利用してもらって大丈夫です．
 
