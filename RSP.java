@@ -7,11 +7,23 @@ public class RSP {
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
+        int player_hand;
+        int judge;
+
+        Scanner scan = new Scanner(System.in);
+
 		// プレイヤーの手を入力
-		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
-		Scanner scan = new Scanner(System.in);
-		int player_hand = Integer.parseInt(scan.nextLine());
-		scan.close();
+        while (true) {
+		    System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
+		    player_hand = Integer.parseInt(scan.nextLine());
+            if ((player_hand != 0) && (player_hand != 1) && (player_hand != 2)) {
+                System.out.print("Your input is not accepted.");
+                continue;
+            } else {
+                scan.close();
+                break;
+            }
+        }
 
 		// 相手の手を決定
 		int enemy_hand = getRandomInt(2);
@@ -19,55 +31,15 @@ public class RSP {
 
 		System.out.print("Result: ");
 		// 勝敗判定
-		switch (player_hand) {
-			case 0:
-				switch (enemy_hand) {
-					case 0:
-						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
-						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
-						System.out.println(PURPLE + "Enemy win!");
-						break;
-					default:
-						break;
-				}
-				break;
-			case 1:
-				switch (enemy_hand) {
-					case 0:
-						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
-						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
-						System.out.println(PURPLE + "Enemy win!");
-						break;
-					default:
-						break;
-				}
-				break;
-			case 2:
-				switch (enemy_hand) {
-					case 0:
-						System.out.println(YELLOW + "You win!");
-						break;
-					case 1:
-						System.out.println(PURPLE + "Enemy win!");
-						break;
-					case 2:
-						System.out.println(GREEN + "Draw!");
-						break;
-					default:
-						break;
-				}
-				break;
-			default:
-				break;
-		}
+        judge = (player_hand - enemy_hand + 3) % 3;
+        if (judge == 0) {
+            System.out.println(GREEN + "Draw!");
+        } else if (judge == 1) {
+            System.out.println(PURPLE + "Enemy win!");
+        } else {
+            System.out.println(YELLOW + "You win!");
+        }
+		
 	}
 
 	// 受け取った範囲でランダムな数値を生成
