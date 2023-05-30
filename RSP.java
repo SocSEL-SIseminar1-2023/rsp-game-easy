@@ -2,16 +2,25 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RSP {
+    private static int player_hand;
 	public static void main(String[] args) {
 		// テキストに使う色の宣言
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
 		// プレイヤーの手を入力
+        try{
 		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
 		Scanner scan = new Scanner(System.in);
-		int player_hand = Integer.parseInt(scan.nextLine());
-		scan.close();
+        
+		player_hand = Integer.parseInt(scan.nextLine());
+        scan.close();
+
+        }
+        catch(java.lang.NumberFormatException e){
+            System.out.println("Please input a number between 0 and 2.");
+            System.exit(1);
+        }
 
 		// 相手の手を決定
 		int enemy_hand = getRandomInt(2);
