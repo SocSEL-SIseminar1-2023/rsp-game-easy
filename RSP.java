@@ -1,17 +1,31 @@
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class RSP {
 	public static void main(String[] args) {
 		// テキストに使う色の宣言
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
-		// プレイヤーの手を入力
-		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
-		Scanner scan = new Scanner(System.in);
-		int player_hand = Integer.parseInt(scan.nextLine());
-		scan.close();
+
+        int player_hand;
+        Scanner scan = new Scanner(System.in);
+        while(true){
+            try{
+                // プレイヤーの手を入力
+                System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
+                player_hand = Integer.parseInt(scan.nextLine());
+                if(player_hand < 0 || player_hand > 2){
+                    System.out.println("指定された範囲の値ではない数値が入力されました。正しい値を入力してください");
+                    continue;
+                }
+                break;
+            }catch(Exception e){
+                System.out.println("型が異なる値が入力されました。正しい値を入力してください。");
+            }
+        }
+        scan.close();
 
 		// 相手の手を決定
 		int enemy_hand = getRandomInt(2);
@@ -37,13 +51,13 @@ public class RSP {
 				break;
 			case 1:
 				switch (enemy_hand) {
-					case 0:
+					case 1:
 						System.out.println(GREEN + "Draw!");
 						break;
-					case 1:
+					case 2:
 						System.out.println(YELLOW + "You win!");
 						break;
-					case 2:
+					case 0:
 						System.out.println(PURPLE + "Enemy win!");
 						break;
 					default:
@@ -66,6 +80,7 @@ public class RSP {
 				}
 				break;
 			default:
+                
 				break;
 		}
 	}
