@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class RSP {
 	public static void main(String[] args) {
@@ -7,11 +8,23 @@ public class RSP {
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
+        int player_hand = 0;
+        boolean flag = false;//入力が正しいかどうか判断する
+
 		// プレイヤーの手を入力
-		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
-		Scanner scan = new Scanner(System.in);
-		int player_hand = Integer.parseInt(scan.nextLine());
-		scan.close();
+        while (flag == false) {
+            Scanner scan = new Scanner(System.in);
+            try {
+                System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\nYour hand is : ");
+                player_hand = scan.nextInt();
+                flag = true; // 正しい入力があった場合にフラグを更新
+                scan.close();
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Please enter a number between 0 and 2");
+                scan.nextLine(); // 入力バッファをクリア
+            }
+        }
+        
 
 		// 相手の手を決定
 		int enemy_hand = getRandomInt(2);
@@ -37,13 +50,13 @@ public class RSP {
 				break;
 			case 1:
 				switch (enemy_hand) {
-					case 0:
+					case 1:
 						System.out.println(GREEN + "Draw!");
 						break;
-					case 1:
+					case 2:
 						System.out.println(YELLOW + "You win!");
 						break;
-					case 2:
+					case 0:
 						System.out.println(PURPLE + "Enemy win!");
 						break;
 					default:
