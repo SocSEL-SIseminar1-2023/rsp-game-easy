@@ -66,6 +66,7 @@ public class RSP {
 				}
 				break;
 			default:
+				System.out.println("Please input a number between 0 and 2.");
 				break;
 		}
 	}
