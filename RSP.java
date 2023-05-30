@@ -14,7 +14,7 @@ public class RSP {
 		scan.close();
 
 		// 相手の手を決定
-		int enemy_hand = getRandomInt(2);
+		int enemy_hand = getRandomInt(3);
 		System.out.println(" Enemy hand is: " + enemy_hand);
 
 		System.out.print("Result: ");
