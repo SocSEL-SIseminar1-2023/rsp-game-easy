@@ -27,10 +27,10 @@ public class RSP {
 						System.out.println(GREEN + "Draw!");
 						break;
 					case 1:
-						System.out.println(YELLOW + "You win!");
+						System.out.println(RED + "You win!");
 						break;
 					case 2:
-						System.out.println(PURPLE + "Enemy win!");
+						System.out.println(BLUE + "Enemy win!");
 						break;
 					default:
 						break;
@@ -42,10 +42,10 @@ public class RSP {
 						System.out.println(GREEN + "Draw!");
 						break;
 					case 2:
-						System.out.println(YELLOW + "You win!");
+						System.out.println(RED + "You win!");
 						break;
 					case 0:
-						System.out.println(PURPLE + "Enemy win!");
+						System.out.println(BLUE + "Enemy win!");
 						break;
 					default:
 						break;
@@ -54,10 +54,10 @@ public class RSP {
 			case 2:
 				switch (enemy_hand) {
 					case 0:
-						System.out.println(YELLOW + "You win!");
+						System.out.println(RED + "You win!");
 						break;
 					case 1:
-						System.out.println(PURPLE + "Enemy win!");
+						System.out.println(BLUE + "Enemy win!");
 						break;
 					case 2:
 						System.out.println(GREEN + "Draw!");
