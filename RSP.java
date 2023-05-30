@@ -66,6 +66,7 @@ public class RSP {
 				}
 				break;
 			default:
+				System.out.println("Your hand is not correct!");
 				break;
 		}
 	}
