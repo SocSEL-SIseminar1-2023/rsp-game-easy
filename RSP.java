@@ -7,6 +7,7 @@ public class RSP {
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
+
 		// プレイヤーの手を入力
 		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
 		Scanner scan = new Scanner(System.in);
@@ -38,13 +39,13 @@ public class RSP {
 			case 1:
 				switch (enemy_hand) {
 					case 0:
-						System.out.println(GREEN + "Draw!");
+						System.out.println(PURPLE + "Enemy win!");
 						break;
 					case 1:
-						System.out.println(YELLOW + "You win!");
+						System.out.println(GREEN + "Draw!");
 						break;
 					case 2:
-						System.out.println(PURPLE + "Enemy win!");
+						System.out.println(YELLOW + "You win!");
 						break;
 					default:
 						break;
