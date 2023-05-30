@@ -21,49 +21,37 @@ public class RSP {
 		// 勝敗判定
 		switch (player_hand) {
 			case 0:
-				switch (enemy_hand) {
-					case 0:
+				if (enemy_hand == 0){
 						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
+                } else if (enemy_hand == 1){
 						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
+                } else if (enemy_hand == 2){
 						System.out.println(PURPLE + "Enemy win!");
+                } else {
 						break;
-					default:
-						break;
-				}
-				break;
+                }
+                break;
 			case 1:
-				switch (enemy_hand) {
-					case 0:
+                if (enemy_hand == 0){
 						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
+                } else if (enemy_hand == 1){
 						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
+                } else if (enemy_hand == 2){
 						System.out.println(PURPLE + "Enemy win!");
+                } else {
 						break;
-					default:
-						break;
-				}
-				break;
+                }
+                break;
 			case 2:
-				switch (enemy_hand) {
-					case 0:
+                if (enemy_hand == 0){
 						System.out.println(YELLOW + "You win!");
-						break;
-					case 1:
+                } else if (enemy_hand == 1){
 						System.out.println(PURPLE + "Enemy win!");
-						break;
-					case 2:
+                } else if (enemy_hand == 2){
 						System.out.println(GREEN + "Draw!");
-						break;
-					default:
-						break;
-				}
+                } else {
+					break;
+                }
 				break;
 			default:
 				break;
