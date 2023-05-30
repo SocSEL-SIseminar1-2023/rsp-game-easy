@@ -7,15 +7,34 @@ public class RSP {
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
+
 		// プレイヤーの手を入力
 		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
 		Scanner scan = new Scanner(System.in);
 		int player_hand = Integer.parseInt(scan.nextLine());
 		scan.close();
+        
+        //プレイヤーの手を出力
+        System.out.println();
+        if(player_hand == 0){
+		    System.out.println(" Your hand is: Rock");
+        } else if(player_hand == 1){
+		    System.out.println(" Your hand is: Scissors");
+        } else if(player_hand == 2){
+		    System.out.println(" Your hand is: Paper");
+        }
 
 		// 相手の手を決定
 		int enemy_hand = getRandomInt(2);
-		System.out.println(" Enemy hand is: " + enemy_hand);
+        
+        //相手の手を出力
+        if(enemy_hand == 0){
+		    System.out.println(" Enemy hand is: Rock");
+        } else if(enemy_hand == 1){
+		    System.out.println(" Enemy hand is: Scissors");
+        } else if(enemy_hand == 2){
+		    System.out.println(" Enemy hand is: Paper");
+        }
 
 		System.out.print("Result: ");
 		// 勝敗判定
@@ -38,16 +57,17 @@ public class RSP {
 			case 1:
 				switch (enemy_hand) {
 					case 0:
-						System.out.println(GREEN + "Draw!");
+						System.out.println(PURPLE + "Enemy win!");
 						break;
 					case 1:
-						System.out.println(YELLOW + "You win!");
+						System.out.println(GREEN + "Draw!");
 						break;
 					case 2:
-						System.out.println(PURPLE + "Enemy win!");
+						System.out.println(YELLOW + "You win!");
 						break;
 					default:
 						break;
+				
 				}
 				break;
 			case 2:
