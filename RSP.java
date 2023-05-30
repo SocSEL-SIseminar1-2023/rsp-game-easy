@@ -38,13 +38,13 @@ public class RSP {
 				break;
 			case 1:
 				switch (enemy_hand) {
-					case 0:
+					case 1:
 						System.out.println(GREEN + "Draw!");
 						break;
-					case 1:
+					case 2:
 						System.out.println(YELLOW + "You win!");
 						break;
-					case 2:
+					case 0:
 						System.out.println(PURPLE + "Enemy win!");
 						break;
 					default:
