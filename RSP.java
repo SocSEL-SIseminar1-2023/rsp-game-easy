@@ -11,6 +11,11 @@ public class RSP {
 		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
 		Scanner scan = new Scanner(System.in);
 		int player_hand = Integer.parseInt(scan.nextLine());
+		while(player_hand < 0 || player_hand > 2){
+		    System.out.println("You entered an invalid value");
+		    System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
+		    player_hand = Integer.parseInt(scan.nextLine());
+		}
 		scan.close();
 
 		// 相手の手を決定
