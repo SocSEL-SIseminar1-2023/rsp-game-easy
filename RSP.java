@@ -19,55 +19,31 @@ public class RSP {
 
 		System.out.print("Result: ");
 		// 勝敗判定
-		switch (player_hand) {
-			case 0:
-				switch (enemy_hand) {
-					case 0:
+		if(player_hand == 0) {
+				if (enemy_hand == 0) {
 						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
+                } else if (enemy_hand == 1) {
 						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
+                } else if (enemy_hand == 2) {
 						System.out.println(PURPLE + "Enemy win!");
-						break;
-					default:
-						break;
-				}
-				break;
-			case 1:
-				switch (enemy_hand) {
-					case 0:
+                }
+            } else if (player_hand == 1) {
+            if (enemy_hand == 0) {
 						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
+					} else if (enemy_hand == 1) {
 						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
+                    } else if (enemy_hand == 2) {
 						System.out.println(PURPLE + "Enemy win!");
-						break;
-					default:
-						break;
 				}
-				break;
-			case 2:
-				switch (enemy_hand) {
-					case 0:
+            } else if (player_hand == 2) {
+            if (enemy_hand == 0) {
 						System.out.println(YELLOW + "You win!");
-						break;
-					case 1:
+                    } else if (enemy_hand == 1) {
 						System.out.println(PURPLE + "Enemy win!");
-						break;
-					case 2:
+                    } else if (enemy_hand == 2) {
 						System.out.println(GREEN + "Draw!");
-						break;
-					default:
-						break;
-				}
-				break;
-			default:
-				break;
-		}
+                    }
+            }
 	}
 
 	// 受け取った範囲でランダムな数値を生成
