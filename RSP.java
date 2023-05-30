@@ -7,10 +7,14 @@ public class RSP {
 		final String GREEN = "\u001b[00;32m";
 		final String YELLOW = "\u001b[00;33m";
 		final String PURPLE = "\u001b[00;34m";
+
 		// プレイヤーの手を入力
-		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
 		Scanner scan = new Scanner(System.in);
-		int player_hand = Integer.parseInt(scan.nextLine());
+        	int player_hand;
+        	do{
+            		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
+            		player_hand = Integer.parseInt(scan.nextLine());
+        	}while(player_hand != 0 && player_hand != 1 && player_hand != 2);
 		scan.close();
 
 		// 相手の手を決定
