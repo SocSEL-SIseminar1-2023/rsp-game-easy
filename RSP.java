@@ -16,7 +16,6 @@ public class RSP {
 
         //プレイヤーまたは敵が3回勝つまで繰り返す
         while((playerVictoryNum < 3) && (enemyVictoryNum < 3)){
-            System.out.println("while start");
             System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
             player_hand = Integer.parseInt(scan.nextLine());
             // 相手の手を決定
