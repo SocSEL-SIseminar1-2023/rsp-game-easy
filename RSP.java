@@ -1,79 +1,108 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.io.Console;
 
 public class RSP {
-	public static void main(String[] args) {
-		// テキストに使う色の宣言
-		final String GREEN = "\u001b[00;32m";
-		final String YELLOW = "\u001b[00;33m";
-		final String PURPLE = "\u001b[00;34m";
-		// プレイヤーの手を入力
-		System.out.print("Please input your hand! 0:Rock 1:Scissors 2:Paper\n Your hand is : ");
-		Scanner scan = new Scanner(System.in);
-		int player_hand = Integer.parseInt(scan.nextLine());
-		scan.close();
+    public static void main(String[] args) {
+        // テキストに使う色の宣言
+        final String GREEN = "\u001b[00;32m";
+        final String YELLOW = "\u001b[00;33m";
+        final String PURPLE = "\u001b[00;34m";
+        final String RESET = "\u001b[0m";
 
-		// 相手の手を決定
-		int enemy_hand = getRandomInt(2);
-		System.out.println(" Enemy hand is: " + enemy_hand);
+        Console console = System.console();
 
-		System.out.print("Result: ");
-		// 勝敗判定
-		switch (player_hand) {
-			case 0:
-				switch (enemy_hand) {
-					case 0:
-						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
-						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
-						System.out.println(PURPLE + "Enemy win!");
-						break;
-					default:
-						break;
-				}
-				break;
-			case 1:
-				switch (enemy_hand) {
-					case 0:
-						System.out.println(GREEN + "Draw!");
-						break;
-					case 1:
-						System.out.println(YELLOW + "You win!");
-						break;
-					case 2:
-						System.out.println(PURPLE + "Enemy win!");
-						break;
-					default:
-						break;
-				}
-				break;
-			case 2:
-				switch (enemy_hand) {
-					case 0:
-						System.out.println(YELLOW + "You win!");
-						break;
-					case 1:
-						System.out.println(PURPLE + "Enemy win!");
-						break;
-					case 2:
-						System.out.println(GREEN + "Draw!");
-						break;
-					default:
-						break;
-				}
-				break;
-			default:
-				break;
-		}
-	}
+        int playerA_hand = getPlayerHand(console, "Player A");
+        int playerB_hand = getPlayerHand(console, "Player B");
 
-	// 受け取った範囲でランダムな数値を生成
-	private static int getRandomInt(int range) {
-		Random random = new Random();
-		int random_num = random.nextInt(range);
-		return random_num;
-	}
+        System.out.println("Player A hand:"+playerA_hand);
+        System.out.println("Player B hand:"+playerB_hand);
+        System.out.print("Result: ");
+        judgehands(playerA_hand, playerB_hand);
+        
+
+        System.out.println(RESET + "=== Game Set ===");
+    }
+
+    private static int getPlayerHand(Console console, String player) {
+        int player_hand = 0;
+        boolean flag = false;
+        while (!flag) {
+            try {
+                char[] password = console.readPassword("%s, please input your hand! 0:Rock 1:Scissors 2:Paper\nYour hand is: ", player);
+                String input = new String(password);
+                player_hand = Integer.parseInt(input);
+                if (checkhand(player_hand)) {
+                    flag = true;
+                    return player_hand;
+                } else {
+                    System.out.println("Error: Please enter a valid hand");
+                }
+                java.util.Arrays.fill(password, ' ');
+            } catch (Exception e) {
+                System.out.println("Error: Please enter a valid input");
+            }
+        }
+        return 0;
+    }
+
+    private static boolean checkhand(int hand) {
+        return hand >= 0 && hand <= 2;
+    }
+
+    private static void judgehands(int playerA_hand, int playerB_hand) {
+        final String GREEN = "\u001b[00;32m";
+        final String YELLOW = "\u001b[00;33m";
+        final String PURPLE = "\u001b[00;34m";
+        final String RESET = "\u001b[0m";
+
+        switch (playerA_hand) {
+            case 0:
+                switch (playerB_hand) {
+                    case 0:
+                        System.out.println(GREEN + "Draw!");
+                        break;
+                    case 1:
+                        System.out.println(YELLOW + "Player A wins!");
+                        break;
+                    case 2:
+                        System.out.println(PURPLE + "Player B wins!");
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 1:
+                switch (playerB_hand) {
+                    case 0:
+                        System.out.println(PURPLE + "Player B wins!");
+                        break;
+                    case 1:
+                        System.out.println(GREEN + "Draw!");
+                        break;
+                    case 2:
+                        System.out.println(YELLOW + "Player A wins!");
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 2:
+                switch (playerB_hand) {
+                    case 0:
+                        System.out.println(YELLOW + "Player A wins!");
+                        break;
+                    case 1:
+                        System.out.println(PURPLE + "Player B wins!");
+                        break;
+                    case 2:
+                        System.out.println(GREEN + "Draw!");
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+        System.out.print(RESET);
+    }
 }
