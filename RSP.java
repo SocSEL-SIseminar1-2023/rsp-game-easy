@@ -14,7 +14,7 @@ public class RSP {
 		scan.close();
 
 		// 相手の手を決定
-		int enemy_hand = getRandomInt(2);
+		int enemy_hand = getRandomInt(3);
 		System.out.println(" Enemy hand is: " + enemy_hand);
 
 		System.out.print("Result: ");
@@ -38,13 +38,13 @@ public class RSP {
 			case 1:
 				switch (enemy_hand) {
 					case 0:
-						System.out.println(GREEN + "Draw!");
+						System.out.println(PURPLE + "Enemy win!");
 						break;
 					case 1:
-						System.out.println(YELLOW + "You win!");
+						System.out.println(GREEN + "Draw!");
 						break;
 					case 2:
-						System.out.println(PURPLE + "Enemy win!");
+						System.out.println(YELLOW + "You win!");
 						break;
 					default:
 						break;
